@@ -31,7 +31,7 @@ namespace Vidly.Controllers
             {
                 MembershipTypes = membershipTypes
             };
-            return View();
+            return View(viewModel);
 
         }
         

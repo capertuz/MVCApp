@@ -103,6 +103,30 @@ namespace Vidly.Controllers
 
             return View(movie);
         }
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+            {
+                _context.Movies.Add(movie);
+
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("List");
+        }
+
+        public ActionResult New()
+        {
+            var viewModel = new MovieFormViewModel
+            {
+                Genres = _context.Genres.ToList()
+            };
+
+            return View("MoviesForm",viewModel);
+        }
     }
 
 }

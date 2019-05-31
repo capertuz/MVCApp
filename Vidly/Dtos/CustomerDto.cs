@@ -20,7 +20,8 @@ namespace Vidly.Dtos
 
         public byte MembershipTypeId { get; set; }
 
-        [Min18YearsIfAMember]
+        //[Min18YearsIfAMember]
+        ////This attribute is deleted because the logic of the validation was made for Customer and not CustomerDto
         public DateTime? Birthdate { get; set; }
     }
 }

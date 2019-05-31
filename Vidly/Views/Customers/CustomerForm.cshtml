@@ -4,10 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@* ValidationSummary() by default displays all validation errors *@
 <h2>New Customer</h2>
 
 @using (Html.BeginForm("Save", "Customers"))
 {
+
+    @Html.ValidationSummary(true, "Please fix the following errors:")
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Name)
         @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })

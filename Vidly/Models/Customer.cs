@@ -24,6 +24,7 @@ namespace Vidly.Models
         public byte MembershipTypeId { get; set; }
 
         [Display(Name = "Date of Birth")]//This attribute is used to display "Date of Birth" as the label for an input linked to this field.
+        [Min18YearsIfAMember]
         public DateTime? Birthdate { get; set; }
         
     }

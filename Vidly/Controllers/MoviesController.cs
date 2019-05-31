@@ -115,10 +115,13 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            DateTime now = DateTime.Now;
             if (movie.Id == 0)
             {
+                movie.DateAdded = now;
                 _context.Movies.Add(movie);
 
             }
@@ -126,7 +129,7 @@ namespace Vidly.Controllers
             {
                 var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
                 movieInDb.Name = movie.Name;
-                movieInDb.DateAdded = movie.DateAdded;
+                movieInDb.DateAdded = now;
                 movieInDb.GenreId = movie.GenreId;
                 movieInDb.NumberInStock = movie.NumberInStock;
                 movieInDb.ReleaseDate = movie.ReleaseDate;
@@ -141,6 +144,7 @@ namespace Vidly.Controllers
         {
             var viewModel = new MovieFormViewModel
             {
+                Movie = new Movie(),
                 Genres = _context.Genres.ToList()
             };
 

@@ -41,10 +41,7 @@ namespace Vidly.Controllers
         [Route("Customers")] 
         public ActionResult List()
         {
-            
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-
-            return View(customers);
+            return View();
         }
         [Route("Customers/Details/{id}")] //when using regex constraint You need to escape the [] and {} characters in order to use regex
         public ActionResult Details(int id)

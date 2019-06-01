@@ -183,11 +183,13 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
+    <Compile Include="Controllers\Api\MoviesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
+    <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -246,6 +248,10 @@
     <Compile Include="Migrations\201905310320219_UpdatesToModel.cs" />
     <Compile Include="Migrations\201905310320219_UpdatesToModel.Designer.cs">
       <DependentUpon>201905310320219_UpdatesToModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906010249065_MovieNCustomerModelUpdate.cs" />
+    <Compile Include="Migrations\201906010249065_MovieNCustomerModelUpdate.Designer.cs">
+      <DependentUpon>201906010249065_MovieNCustomerModelUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -386,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905310320219_UpdatesToModel.resx">
       <DependentUpon>201905310320219_UpdatesToModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906010249065_MovieNCustomerModelUpdate.resx">
+      <DependentUpon>201906010249065_MovieNCustomerModelUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

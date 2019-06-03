@@ -95,7 +95,10 @@ namespace Vidly.Controllers
         [Route("Movies")]
         public ActionResult List()
         {
-            return View();
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View();
+
+            return View("ReadOnlyList");
         }
 
         [Route("Movies/Details/{id}")]
@@ -146,6 +149,7 @@ namespace Vidly.Controllers
             return RedirectToAction("List");
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var viewModel = new MovieFormViewModel()

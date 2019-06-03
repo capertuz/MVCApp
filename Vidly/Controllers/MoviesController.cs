@@ -95,10 +95,7 @@ namespace Vidly.Controllers
         [Route("Movies")]
         public ActionResult List()
         {
-
-            var moviesList = _context.Movies.Include(m => m.Genre).ToList();
-
-            return View(moviesList);
+            return View();
         }
 
         [Route("Movies/Details/{id}")]
@@ -136,6 +133,7 @@ namespace Vidly.Controllers
             else
             {
                 var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+                
                 movieInDb.Name = movie.Name;
                 movieInDb.DateAdded = now;
                 movieInDb.GenreId = movie.GenreId;
